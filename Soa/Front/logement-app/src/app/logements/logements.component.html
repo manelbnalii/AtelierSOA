@@ -1,0 +1,17 @@
+<div class="logements-container">
+  <h2>Liste des Logements</h2>
+  <div *ngIf="logements.length > 0; else noLogements">
+    <ul>
+      <li *ngFor="let logement of logements">
+        <h3>{{ logement.reference }} - {{ logement.type }}</h3>
+        <p>{{ logement.adresse }}</p>
+        <p>{{ logement.delegation }}, {{ logement.gouvernorat }}</p>
+        <p>{{ logement.description }}</p>
+        <p>Prix: {{ logement.prix | currency }}</p>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noLogements>
+    <p>Aucun logement disponible.</p>
+  </ng-template>
+</div>
